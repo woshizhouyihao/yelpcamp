@@ -3,6 +3,7 @@
 
 <div class="row">
     <div class="col-6">
+        
         <div class="card mb-3">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -46,6 +47,7 @@
         </div>
     </div>
     <div class="col-6">
+        <div id='map' style='width: 500px; height: 300px;'></div>
         <% if(currentUser) { %> 
         <h2>Review</h2>
         <form action="/campgrounds/<%= campground._id %>/review" method="POST" novalidate class="needs-validation mb-3">
@@ -92,3 +94,9 @@
         <% } %> 
     </div>
 </div>
+
+<script>
+    const mapToken = '<%-process.env.MAP_API%>';
+    const campground = <%- JSON.stringify(campground)%>;
+</script>
+<script src="/javascripts/showMap.js"></script>
